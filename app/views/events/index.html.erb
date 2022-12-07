@@ -1,0 +1,166 @@
+<div>
+  <div>
+    <h1>
+      List of all events
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new event
+    </h2>
+
+    <form action="/insert_event" method="post">
+      <div>
+        <label for="location_box">
+          Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location">
+      </div>
+
+      <div>
+        <label for="despriction_box">
+          Despriction
+        </label>
+
+        <input type="text" id="despriction_box" name="query_despriction">
+      </div>
+
+      <div>
+        <label for="event_name_box">
+          Event name
+        </label>
+
+        <input type="text" id="event_name_box" name="query_event_name">
+      </div>
+
+      <div>
+        <label for="host_id_box">
+          Host
+        </label>
+
+        <input type="text" id="host_id_box" name="query_host_id">
+      </div>
+
+      <div>
+        <label for="roster_id_box">
+          Roster
+        </label>
+
+        <input type="text" id="roster_id_box" name="query_roster_id">
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image">
+      </div>
+
+      <button>
+        Create event
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Location
+        </th>
+
+        <th>
+          Despriction
+        </th>
+
+        <th>
+          Event name
+        </th>
+
+        <th>
+          Host
+        </th>
+
+        <th>
+          Roster
+        </th>
+
+        <th>
+          Image
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_events.each do |an_event| %>
+      <tr>
+        <td>
+          <%= an_event.id %>
+        </td>
+
+        <td>
+          <%= an_event.location %>
+        </td>
+
+        <td>
+          <%= an_event.despriction %>
+        </td>
+
+        <td>
+          <%= an_event.event_name %>
+        </td>
+
+        <td>
+          <%= an_event.host_id %>
+        </td>
+
+        <td>
+          <%= an_event.roster_id %>
+        </td>
+
+        <td>
+          <%= an_event.image %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_event.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_event.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/events/<%= an_event.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
