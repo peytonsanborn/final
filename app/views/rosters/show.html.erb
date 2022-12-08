@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Roster #<%= @the_roster.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/rosters">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_roster/<%= @the_roster.id %>">
+          Delete roster
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Event
+      </dt>
+      <dd>
+        <%= @the_roster.event_id %>
+      </dd>
+
+      <dt>
+        Guests
+      </dt>
+      <dd>
+        <%= @the_roster.guests_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_roster.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_roster.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit roster
+    </h2>
+
+    <form action="/modify_roster/<%= @the_roster.id %>"  method="post" >
+      <div>
+        <label for="event_id_box">
+          Event
+        </label>
+
+        <input type="text" id="event_id_box" name="query_event_id" value="<%= @the_roster.event_id %>">
+      </div>
+
+      <div>
+        <label for="guests_id_box">
+          Guests
+        </label>
+
+        <input type="text" id="guests_id_box" name="query_guests_id" value="<%= @the_roster.guests_id %>">
+      </div>
+
+      <button>
+        Update roster
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

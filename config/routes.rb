@@ -2,6 +2,25 @@ Rails.application.routes.draw do
 
 
 
+  # Routes for the Roster resource:
+
+  # CREATE
+  post("/insert_roster", { :controller => "rosters", :action => "create" })
+          
+  # READ
+  get("/rosters", { :controller => "rosters", :action => "index" })
+  
+  get("/rosters/:path_id", { :controller => "rosters", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_roster/:path_id", { :controller => "rosters", :action => "update" })
+  
+  # DELETE
+  get("/delete_roster/:path_id", { :controller => "rosters", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the User account:
 
   # SIGN UP FORM
