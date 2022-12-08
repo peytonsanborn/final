@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_07_235738) do
+ActiveRecord::Schema.define(version: 2022_12_08_004027) do
 
   create_table "events", force: :cascade do |t|
     t.string "location"
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(version: 2022_12_07_235738) do
     t.integer "host_id"
     t.integer "roster_id"
     t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.integer "attending_id"
+    t.string "bio"
+    t.string "profile_image"
+    t.string "username"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
