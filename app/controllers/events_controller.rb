@@ -22,8 +22,8 @@ class EventsController < ApplicationController
     the_event.location = params.fetch("query_location")
     the_event.despriction = params.fetch("query_despriction")
     the_event.event_name = params.fetch("query_event_name")
-    the_event.host_id = params.fetch("query_host_id")
-    the_event.roster_id = params.fetch("query_roster_id")
+    the_event.host_id = session.fetch(:user_id)
+    #the_event.roster_id = params.fetch("query_roster_id")
     the_event.image = params.fetch("query_image")
 
     if the_event.valid?

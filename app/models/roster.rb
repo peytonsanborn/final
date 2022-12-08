@@ -9,4 +9,6 @@
 #  guests_id  :integer
 #
 class Roster < ApplicationRecord
+  belongs_to(:guests, { :required => true, :class_name => "User", :foreign_key => "guests_id" })
+  has_many(:users, { :class_name => "User", :foreign_key => "attending_id", :dependent => :destroy })
 end

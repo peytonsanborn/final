@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all events
+      All Events
     </h1>
   </div>
 </div>
@@ -40,22 +40,6 @@
       </div>
 
       <div>
-        <label for="host_id_box">
-          Host
-        </label>
-
-        <input type="text" id="host_id_box" name="query_host_id">
-      </div>
-
-      <div>
-        <label for="roster_id_box">
-          Roster
-        </label>
-
-        <input type="text" id="roster_id_box" name="query_roster_id">
-      </div>
-
-      <div>
         <label for="image_box">
           Image
         </label>
@@ -76,7 +60,7 @@
     <table border="1">
       <tr>
         <th>
-          ID
+          Event name
         </th>
 
         <th>
@@ -88,19 +72,15 @@
         </th>
 
         <th>
-          Event name
-        </th>
-
-        <th>
           Host
         </th>
 
         <th>
-          Roster
+          Image
         </th>
 
         <th>
-          Image
+          Roster
         </th>
 
         <th>
@@ -118,7 +98,7 @@
       <% @list_of_events.each do |an_event| %>
       <tr>
         <td>
-          <%= an_event.id %>
+          <%= an_event.event_name %>
         </td>
 
         <td>
@@ -130,19 +110,15 @@
         </td>
 
         <td>
-          <%= an_event.event_name %>
+          <%= an_event.host %>
         </td>
 
         <td>
-          <%= an_event.host_id %>
+          <img src="<%= an_event.image %>">
         </td>
 
         <td>
           <%= an_event.roster_id %>
-        </td>
-
-        <td>
-          <%= an_event.image %>
         </td>
 
         <td>
