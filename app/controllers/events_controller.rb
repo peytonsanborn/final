@@ -17,6 +17,14 @@ class EventsController < ApplicationController
     render({ :template => "events/show.html.erb" })
   end
 
+  def mine
+    matching_events = Event.where({ :host_id => session.fetch(:user_id) })
+
+    @list_of_events = matching_events.order({ :created_at => :desc })
+
+    render({ :template => "events/mine.html.erb" })
+  end
+
   def create
     the_event = Event.new
     the_event.location = params.fetch("query_location")

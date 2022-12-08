@@ -66,6 +66,8 @@ Rails.application.routes.draw do
   # DELETE
   get("/delete_event/:path_id", { :controller => "events", :action => "destroy" })
 
+  get("/my_events", { :controller => "events", :action => "mine" })
+
   #------------------------------
 
 end
