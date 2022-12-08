@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_08_001535) do
+ActiveRecord::Schema.define(version: 2022_12_07_235738) do
 
   create_table "events", force: :cascade do |t|
     t.string "location"
@@ -19,23 +19,6 @@ ActiveRecord::Schema.define(version: 2022_12_08_001535) do
     t.integer "host_id"
     t.integer "roster_id"
     t.string "image"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "rosters", force: :cascade do |t|
-    t.integer "event_id"
-    t.integer "guests_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "email"
-    t.string "password_digest"
-    t.integer "attending_id"
-    t.string "biology"
-    t.string "profile_image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
