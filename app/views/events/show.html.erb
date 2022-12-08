@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Event #<%= @the_event.id %> details
+      <%= @the_event.event_name %> details
     </h1>
 
     <div>
@@ -44,14 +44,14 @@
         Host
       </dt>
       <dd>
-        <%= @the_event.host_id %>
+        <%= @the_event.host.username %>
       </dd>
 
       <dt>
         Image
       </dt>
       <dd>
-        <%= @the_event.image %>
+        <img src="<%= @the_event.image %>">
       </dd>
 
       <dt>
@@ -81,12 +81,28 @@
     </h2>
 
     <form action="/modify_event/<%= @the_event.id %>"  method="post" >
+           <div>
+        <label for="event_name_box">
+          Event name
+        </label>
+
+        <input type="text" id="event_name_box" name="query_event_name">
+      </div>
+
       <div>
         <label for="location_box">
           Location
         </label>
 
-        <input type="text" id="location_box" name="query_location" value="<%= @the_event.location %>">
+        <input type="text" id="location_box" name="query_location">
+      </div>
+
+      <div>
+        <label for="time_box">
+          Time
+        </label>
+
+        <input type="text" id="time_box" name="query_time">
       </div>
 
       <div>
@@ -94,32 +110,15 @@
           Despriction
         </label>
 
-        <input type="text" id="despriction_box" name="query_despriction" value="<%= @the_event.despriction %>">
+        <input type="text" id="despriction_box" name="query_despriction">
       </div>
-
-      <div>
-        <label for="event_name_box">
-          Event name
-        </label>
-
-        <input type="text" id="event_name_box" name="query_event_name" value="<%= @the_event.event_name %>">
-      </div>
-
-      <div>
-        <label for="host_id_box">
-          Host
-        </label>
-
-        <input type="text" id="host_id_box" name="query_host_id" value="<%= @the_event.host_id %>">
-      </div>
-
 
       <div>
         <label for="image_box">
           Image
         </label>
 
-        <input type="text" id="image_box" name="query_image" value="<%= @the_event.image %>">
+        <input type="text" id="image_box" name="query_image">
       </div>
 
       <button>

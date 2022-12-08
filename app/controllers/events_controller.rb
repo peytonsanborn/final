@@ -32,6 +32,7 @@ class EventsController < ApplicationController
     the_event.event_name = params.fetch("query_event_name")
     the_event.host_id = session.fetch(:user_id)
     the_event.image = params.fetch("query_image")
+    the_event.time = params.fetch("query_time")
 
     if the_event.valid?
       the_event.save
@@ -50,6 +51,7 @@ class EventsController < ApplicationController
     the_event.event_name = params.fetch("query_event_name")
     the_event.host_id = params.fetch("query_host_id")
     the_event.image = params.fetch("query_image")
+    the_event.time = params.fetch("query_time")
 
     if the_event.valid?
       the_event.save

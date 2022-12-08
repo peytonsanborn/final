@@ -14,7 +14,16 @@
       Add a new event
     </h2>
 
-    <form action="/insert_event" method="post">
+        <form action="/insert_event" method="post">
+
+      <div>
+        <label for="event_name_box">
+          Event name
+        </label>
+
+        <input type="text" id="event_name_box" name="query_event_name">
+      </div>
+
       <div>
         <label for="location_box">
           Location
@@ -24,19 +33,19 @@
       </div>
 
       <div>
+        <label for="time_box">
+          Time
+        </label>
+
+        <input type="text" id="time_box" name="query_time">
+      </div>
+
+      <div>
         <label for="despriction_box">
           Despriction
         </label>
 
         <input type="text" id="despriction_box" name="query_despriction">
-      </div>
-
-      <div>
-        <label for="event_name_box">
-          Event name
-        </label>
-
-        <input type="text" id="event_name_box" name="query_event_name">
       </div>
 
       <div>
@@ -80,7 +89,7 @@
         </th>
 
         <th>
-          Roster
+          Attendees
         </th>
 
         <th>
@@ -110,7 +119,7 @@
         </td>
 
         <td>
-          <%= an_event.host %>
+          you!
         </td>
 
         <td>
@@ -118,7 +127,7 @@
         </td>
 
         <td>
-          <%= an_event.roster_id %>
+          number incoming
         </td>
 
         <td>
