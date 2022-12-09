@@ -14,4 +14,5 @@
 #
 class Event < ApplicationRecord
   belongs_to(:host, { :required => true, :class_name => "User", :foreign_key => "host_id" })
+  has_many(:rosters, { :class_name => "Roster", :foreign_key => "event_id", :dependent => :destroy })
 end

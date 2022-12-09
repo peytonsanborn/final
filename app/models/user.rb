@@ -19,5 +19,5 @@ class User < ApplicationRecord
 
   has_many(:events, { :class_name => "Event", :foreign_key => "host_id", :dependent => :destroy })
   has_many(:rosters, { :class_name => "Roster", :foreign_key => "guests_id", :dependent => :destroy })
-  belongs_to(:attending, { :required => true, :class_name => "Roster", :foreign_key => "attending_id" })
+  
 end
