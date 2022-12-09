@@ -52,13 +52,16 @@ task({ :sample_data => :environment}) do
   #  {id: 2, event_id: 2, guests_id: 2, created_at: "2018-01-28 00:37:26", updated_at: "2019-10-08 10:25:00"}
   #]
 
+  count = 1
   events.each do |an_event|
     roster = Roster.new
+    roster.id = count
     roster.event_id = an_event.id
     roster.created_at = "2018-01-28 00:37:26"
     roster.updated_at = "2019-10-08 10:25:00"
     roster.guests_id = an_event.host_id
     roster.save
+    count += 1
   end
 
   #Roster.insert_all!(rosters)
