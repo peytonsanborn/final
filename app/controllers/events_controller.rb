@@ -38,8 +38,9 @@ class EventsController < ApplicationController
     the_roster.event_id = the_event.id
     the_roster.guests_id = session.fetch(:user_id)
 
-    if the_event.valid?
+    if the_event.valid? && the_roster.valid?
       the_event.save
+      the_roster.save
       redirect_to("/events", { :notice => "Event created successfully." })
     else
       redirect_to("/events", { :alert => the_event.errors.full_messages.to_sentence })

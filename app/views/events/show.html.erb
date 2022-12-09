@@ -9,15 +9,15 @@
         <a href="/events">
           Go back
         </a>
+        <% if @the_event.host_id == session.fetch(:user_id) %>
       </div>
-
       <div>
         <a href="/delete_event/<%= @the_event.id %>">
           Delete event
         </a>
       </div>
     </div>
-
+<% end %>
     <dl>
       <dt>
         Location
