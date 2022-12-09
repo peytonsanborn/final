@@ -66,40 +66,32 @@
 <hr>
 <div>
   <div>
-    <table border="1">
+    <table border="1" class="table-active">
       <tr>
-        <th>
+        <th scope="col">
           Event name
         </th>
 
-        <th>
+        <th scope="col">
           Location
         </th>
-        <th>
+        <th scope="col">
           When
         </th>
-        <th>
+        <th scope="col">
           Despriction
         </th>
 
-        <th>
+        <th scope="col">
           Host
         </th>
 
-        <th>
+        <th scope="col">
           Image
         </th>
 
-        <th>
+        <th scope="col">
           Attending
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
         </th>
 
         <th>
@@ -127,7 +119,7 @@
         </td>
 
         <td>
-          <img src="<%= an_event.image %>">
+          <img src="<%= an_event.image %>" style="height:250px;width:400px;">
         </td>
         <td>
 <% #roster form %>
@@ -158,12 +150,6 @@
   </div>
 </div>
 
-        </td>
-        <td>
-          <%= time_ago_in_words(an_event.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(an_event.updated_at) %> ago
         </td>
 
         <td>
