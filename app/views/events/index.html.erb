@@ -75,7 +75,9 @@
         <th>
           Location
         </th>
-
+        <th>
+          When
+        </th>
         <th>
           Despriction
         </th>
@@ -113,7 +115,9 @@
         <td>
           <%= an_event.location %>
         </td>
-
+        <td>
+          <%= an_event.time %>
+        </td>
         <td>
           <%= an_event.despriction %>
         </td>
@@ -125,7 +129,36 @@
         <td>
           <img src="<%= an_event.image %>">
         </td>
+        <td>
+<% #roster form %>
+<% this_roster = Roster.where({ :event_id => an_event.id, :guests_id => session.fetch(:user_id)}).at(0)%>
+    <% if !this_roster %>
+          <form action="/modify_roster/<%= Roster.where({ :event_id => an_event.id }).at(0).id%>" method="post">
+          <div>
+            <input type="hidden" id="event_id_box" name="query_event_id" value=<%= an_event.id %>>
+          </div>
+          <button back>
+            Attend
+          </button>
+        </form>
+    <% else %>
+          <form action="/modify_roster/<%= this_roster.id%>" method="post">
+          <div>
+            <input type="hidden" id="event_id_box" name="query_event_id" value=<%= an_event.id %>>
+          </div>
+          <div>
+            <input type="hidden" id="q_id_box" name="query_guests_id">
+          </div>
+          <button>
+            Don't attend
+          </button>
+        </form>
 
+    <% end %>
+  </div>
+</div>
+
+        </td>
         <td>
           <%= time_ago_in_words(an_event.created_at) %> ago
         </td>

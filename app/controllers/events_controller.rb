@@ -34,6 +34,10 @@ class EventsController < ApplicationController
     the_event.image = params.fetch("query_image")
     the_event.time = params.fetch("query_time")
 
+    the_roster = Roster.new
+    the_roster.event_id = the_event.id
+    the_roster.guests_id = session.fetch(:user_id)
+
     if the_event.valid?
       the_event.save
       redirect_to("/events", { :notice => "Event created successfully." })
@@ -49,7 +53,7 @@ class EventsController < ApplicationController
     the_event.location = params.fetch("query_location")
     the_event.despriction = params.fetch("query_despriction")
     the_event.event_name = params.fetch("query_event_name")
-    the_event.host_id = params.fetch("query_host_id")
+    the_event.host_id = session.fetch(:user_id)
     the_event.image = params.fetch("query_image")
     the_event.time = params.fetch("query_time")
 

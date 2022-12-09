@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # Routes for the Roster resource:
   get("/", { :controller => "events", :action => "index" })
 
+
+  
+
   # CREATE
   post("/insert_roster", { :controller => "rosters", :action => "create" })
           

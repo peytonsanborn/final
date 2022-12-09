@@ -10,12 +10,13 @@
         <input id="email_box" name="query_email" value="<%= @current_user.email %>">
       </div>
       <div>
-        <label for="attending_id_box">Attending</label>
-        <input id="attending_id_box" name="query_attending_id" value="<%= @current_user.attending_id %>">
-      </div>
-      <div>
         <label for="bio_box">Bio</label>
         <input id="bio_box" name="query_bio" value="<%= @current_user.bio %>">
+      </div>
+      <div>
+      <% curr =  User.where({ :id => session.fetch(:user_id)}).first %>
+      <%curr %>
+        <img src="<%= curr.fetch(:profile_image) %>">
       </div>
       <div>
         <label for="profile_image_box">Profile image</label>

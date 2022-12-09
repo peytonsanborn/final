@@ -27,6 +27,13 @@
       </dd>
 
       <dt>
+        When
+      </dt>
+      <dd>
+        <%= @the_event.time %>
+      </dd>
+
+      <dt>
         Despriction
       </dt>
       <dd>
@@ -73,59 +80,60 @@
 
 <hr>
 
-
-<div>
+<% if session.fetch(:user_id) == @the_event.host_id %>
   <div>
-    <h2>
-      Edit event
-    </h2>
+    <div>
+      <h2>
+        Edit event
+      </h2>
 
-    <form action="/modify_event/<%= @the_event.id %>"  method="post" >
-           <div>
-        <label for="event_name_box">
-          Event name
-        </label>
+      <form action="/modify_event/<%= @the_event.id %>"  method="post" >
+            <div>
+          <label for="event_name_box">
+            Event name
+          </label>
 
-        <input type="text" id="event_name_box" name="query_event_name">
-      </div>
+          <input type="text" id="event_name_box" name="query_event_name">
+        </div>
 
-      <div>
-        <label for="location_box">
-          Location
-        </label>
+        <div>
+          <label for="location_box">
+            Location
+          </label>
 
-        <input type="text" id="location_box" name="query_location">
-      </div>
+          <input type="text" id="location_box" name="query_location">
+        </div>
 
-      <div>
-        <label for="time_box">
-          Time
-        </label>
+        <div>
+          <label for="time_box">
+            Time
+          </label>
 
-        <input type="text" id="time_box" name="query_time">
-      </div>
+          <input type="text" id="time_box" name="query_time">
+        </div>
 
-      <div>
-        <label for="despriction_box">
-          Despriction
-        </label>
+        <div>
+          <label for="despriction_box">
+            Despriction
+          </label>
 
-        <input type="text" id="despriction_box" name="query_despriction">
-      </div>
+          <input type="text" id="despriction_box" name="query_despriction">
+        </div>
 
-      <div>
-        <label for="image_box">
-          Image
-        </label>
+        <div>
+          <label for="image_box">
+            Image
+          </label>
 
-        <input type="text" id="image_box" name="query_image">
-      </div>
+          <input type="text" id="image_box" name="query_image">
+        </div>
 
-      <button>
-        Update event
-      </button>
-    </form>
+        <button>
+          Update event
+        </button>
+      </form>
+    </div>
   </div>
-</div>
+<% end %>
 
 <hr>
