@@ -53,6 +53,6 @@ class RostersController < ApplicationController
 
     the_roster.destroy
 
-    redirect_to("/rosters", { :notice => "Roster deleted successfully."} )
+    redirect_to("/events", { :notice => "Roster deleted successfully."} )
   end
 end
